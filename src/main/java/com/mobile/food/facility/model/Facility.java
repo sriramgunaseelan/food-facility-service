@@ -1,5 +1,8 @@
 package com.mobile.food.facility.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,9 +12,20 @@ import javax.persistence.Table;
 
 import com.mobile.food.facility.model.lookup.FacilityType;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "FACILITY")
-public class Facility {
+public class Facility implements Serializable {
+
+	private static final long serialVersionUID = -4422099106689464716L;
 
 	@Id
 	@Column(name = "ID")
@@ -23,39 +37,7 @@ public class Facility {
 	@Column(name = "DAYHOURS")
 	private String dayhours;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(String schedule) {
-		this.schedule = schedule;
-	}
-
-	public String getDayhours() {
-		return dayhours;
-	}
-
-	public void setDayhours(String dayhours) {
-		this.dayhours = dayhours;
-	}
-
-	public FacilityType getType() {
-		return type;
-	}
-
-	public void setType(FacilityType type) {
-		this.type = type;
-	}
-
-	@OneToOne
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "TYPE_ID", referencedColumnName = "ID")
 	private FacilityType type;
 

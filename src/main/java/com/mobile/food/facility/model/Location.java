@@ -1,20 +1,33 @@
 package com.mobile.food.facility.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "LOCATION")
-public class Location {
+public class Location implements Serializable {
+
+	private static final long serialVersionUID = -4422099106689464716L;
 
 	@Id
 	@Column(name = "ID")
 	private String id;
 
-	@Column(name = "LOCATION")
-	private String location;
+	@Column(name = "name")
+	private String name;
 
 	@Column(name = "LOCATION_DESCRIPTION")
 	private String locationDescription;
@@ -36,77 +49,5 @@ public class Location {
 
 	@Column(name = "CNN")
 	private String cnn;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public String getLocationDescription() {
-		return locationDescription;
-	}
-
-	public void setLocationDescription(String locationDescription) {
-		this.locationDescription = locationDescription;
-	}
-
-	public String getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
-	public String getAdddress() {
-		return adddress;
-	}
-
-	public void setAdddress(String adddress) {
-		this.adddress = adddress;
-	}
-
-	public String getX() {
-		return x;
-	}
-
-	public void setX(String x) {
-		this.x = x;
-	}
-
-	public String getY() {
-		return y;
-	}
-
-	public void setY(String y) {
-		this.y = y;
-	}
-
-	public String getCnn() {
-		return cnn;
-	}
-
-	public void setCnn(String cnn) {
-		this.cnn = cnn;
-	}
 
 }

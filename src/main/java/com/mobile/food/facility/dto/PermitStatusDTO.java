@@ -1,4 +1,4 @@
-package com.mobile.food.facility.dto.response;
+package com.mobile.food.facility.dto;
 
 import java.io.Serializable;
 
@@ -11,12 +11,13 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseResponse implements Serializable {
+public class PermitStatusDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private String status;
-	private StatusMessage statusMessage;
+	
 	private String id;
+	private String permitStatus;
+	private Boolean isActive;
+
 
 }
