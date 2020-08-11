@@ -57,6 +57,13 @@ public class FoodTruckServiceImpl implements FoodTruckService {
 	private ResponseMapper responseMapper;
 	private StatusMessage statusMessage;
 
+	/*
+	 * This method is used to get the food truck record by application id or location id
+	 * 
+	 * @return Object
+	 * 
+	 * @throws Exception
+	 */
 	@Override
 	public FoodTruckResponse getFoodTruckById(String id) {
 		log.info("Get food truck by application or location id - " + id);
@@ -71,6 +78,13 @@ public class FoodTruckServiceImpl implements FoodTruckService {
 		return response;
 	}
 
+	/*
+	 * This method is used to delete  the food truck record by application id or location id
+	 * 
+	 * @return Object
+	 * 
+	 * @throws Exception
+	 */
 	@Override
 	public BaseResponse removeFoodTruckById(String id) {
 		log.info("Remove food truck by application or location id - " + id);
@@ -84,7 +98,14 @@ public class FoodTruckServiceImpl implements FoodTruckService {
 		log.info("Food truck removed by id - " + id);
 		return response;
 	}
-
+	
+	/*
+	 * This method is used to update/insert  the food truck record by application id or location id
+	 * 
+	 * @return Object
+	 * 
+	 * @throws Exception
+	 */
 	@Override
 	public BaseResponse upsertFoodTruckById(String id, FoodTruckRequest request) {
 		log.info("Upsert food truck by application or location id - " + id);
@@ -110,6 +131,13 @@ public class FoodTruckServiceImpl implements FoodTruckService {
 		return response;
 	}
 
+	/*
+	 * This method is used to search  the food truck records applicant, facility type, food items, received
+	 * 
+	 * @return Object
+	 * 
+	 * @throws Exception
+	 */
 	@Override
 	public SearchFoodTruckResponse searchFoodTruck(String applicant, String facilityType, String food, String received,
 			Boolean isExpired, int currentPage, int perPage) {
@@ -138,6 +166,13 @@ public class FoodTruckServiceImpl implements FoodTruckService {
 		return response;
 	}
 
+	/*
+	 * This method is used to get the best food truck by location
+	 * 
+	 * @return Object
+	 * 
+	 * @throws Exception
+	 */
 	@Override
 	public BestFoodTruckResponse getBestFoodTruck(BestFoodTruckRequest request) {
 		BestFoodTruckResponse response = new BestFoodTruckResponse();
